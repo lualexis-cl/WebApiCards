@@ -94,7 +94,8 @@ namespace Com.Solution.WebApiCards.Controllers
 
         private bool PaymentDetailExists(int id)
         {
-            return _paymentDetailContext.PaymentDetail.Any(a => a.PMId == id);
+            return 
+                _paymentDetailContext.PaymentDetail.Any(a => a.PMId == id);
         }
     }
 }
