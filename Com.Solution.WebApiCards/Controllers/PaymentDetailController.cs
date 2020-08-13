@@ -73,7 +73,7 @@ namespace Com.Solution.WebApiCards.Controllers
             _paymentDetailContext.PaymentDetail.Add(paymentDetail);
             await _paymentDetailContext.SaveChangesAsync();
 
-            return Ok(paymentDetail);
+            return CreatedAtAction("GetPaymentDetail", new { id = paymentDetail.PMId }, paymentDetail);
         }
 
         [HttpDelete("{id}")]
