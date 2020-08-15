@@ -36,6 +36,7 @@ namespace Com.Solution.WebApiCards
             services.AddDbContext<PaymentDetailContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddCors();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +46,13 @@ namespace Com.Solution.WebApiCards
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(swagger =>
+            {
+                swagger.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseRouting();
 
